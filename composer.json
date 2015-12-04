@@ -1,0 +1,21 @@
+{
+    "name": "iautomation/dynamic-html",
+    "description": "",
+    "keywords": ["php", "dynamic", "html", "tags", "generation", "abstract", "extensible"],
+    "type": "library",
+    "require": {
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joshua McKenzie",
+            "email": "whereyoucanemailme@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "DynamicHtml\\": "src/"
+        }
+    }
+}
