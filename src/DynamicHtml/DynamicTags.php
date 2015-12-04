@@ -8,9 +8,16 @@ class DynamicTags extends StaticSettings {
 	public static $echo = true;
 	protected static $tag_log = [];
 
-	public static function createTag($name, $attr=[], $shorttag=false){
-		if(!$shorttag)self::addTagToLog($name);
-		return self::createStartTag($name, $attr);
+	public static function createTag($name, $attr=[], $content=true){
+		if(is_string($attr)){
+			$content = $attr;
+			$attr = [];
+		}
+		if($content!==false)self::addTagToLog($name);
+		$output = self::createStartTag($name, $attr);
+		if($content!==false and is_string($content))
+			$output .= (self::output($content).self::end());
+		return $output;
 	}
 	public static function createStartTag($name, $attr=[]){
 		$pieces = [$name, self::attrArrayToStr($attr)];
@@ -50,5 +57,10 @@ class DynamicTags extends StaticSettings {
 	public static function output($str){
 		if(!self::$echo)return $str;
 		echo $str;
+	}
+
+	public static function __callStatic($name, $args){
+		$attr = count($args) ? $args[0] : [];
+		return self::createTag($name, $attr);
 	}
 }
