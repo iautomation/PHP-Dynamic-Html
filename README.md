@@ -20,7 +20,7 @@ The initial motivation was to further divide server-side code from client-side c
 composer require iautomation/dynamic-html
 ```
 and include composer if needed
-```php
+```
 include './vendor/autoload.php'
 ```
 
@@ -32,7 +32,7 @@ Include the class files from the src directory
 ### Basic Example
 
 Below is a full html document written completely with DynamicTags
-```php
+```
 <?php
 
 use \DynamicHtml\DynamicTags as DT;
@@ -82,7 +82,7 @@ Below is specific documentation to each class, it's methods, and example usage.
 The main class providing methods to convert attributes, create start and end tags, and record/output end tags using the `end()` method.
 
 #### Example Usage
-```php
+```
 use \DynamicHtml\DynamicTags as DT;
 
 echo DT::span('id=name', 'John Doe'); // or
@@ -110,7 +110,7 @@ echo DT::span('id=name').'John Doe'.DT::end();
 A helper to accessing DynamicTags, only with the short tag configured(by setting $content to false)
 
 #### Example Usage
-```php
+```
 use \DynamicHtml\DynamicTagsShort as DTS;
 
 echo DTS::br();
@@ -125,7 +125,7 @@ echo DTS::br();
 Lastly, we have the a helper class, though useful, can also be seen as an example class. Provides a showcase of methods extending DynamicTags.
 
 #### Example Usage
-```php
+```
 use \DynamicHtml\DynamicTagsHelper as DTH;
 
 echo DTH::hyperlink('http://...', null, 'one');
